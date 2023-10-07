@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css?family=Iceland:400|Roboto+Condensed:400");
+* {
+  margin: 0;
+  // box-sizing: border-box;
+}
+
+:root {
+  --black: rgba(0, 0, 0, 1);
+  --silver: rgba(185, 192, 193, 1);
+  --grenadier: rgba(218, 68);
+  --white: rgba(255, 255, 255, 1);
+
+  --font-size-m: 18px;
+  --font-size-l: 36px;
+  --font-size-xl: 42px;
+  --font-size-xxl: 48px;
+
+  --font-family-iceland: "Iceland";
+  --font-family-roboto_condensed: "Roboto Condensed";
+}
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex: $values;
+  -webkit-flex: $values;
+  -ms-flex: $values;
+  flex: $values;
+}
+
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+
+.wrapper {
+  @include flexbox();
+}
+
+.item {
+  @include flex(1 200px);
+  @include order(2);
+}
+
+.iceland-normal-white {
+  color: var(--white);
+  font-family: "Iceland";
+
+  font-weight: 400;
+  font-style: normal;
+}
+
+.response-img {
+  /* flex-basis: 40%; */
+  height: 100%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+}
+
+//standard grid column settings ***********
+.s-col1 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 40px;
+}
+.s-col2 {
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 40px;
+}
+
+@media (max-width: 1028px) {
+  .s-col1 {
+    grid-template-columns: repeat(8, 1fr);
+    grid-column-gap: 32px;
+  }
+  .s-col2 {
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 32px;
+  }
+}
+
+@media (max-width: 800px) {
+  .s-col1 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 32px;
+  }
+  .s-col2 {
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .s-col1 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+  }
+  .s-col2 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+  }
+}
+//****************************************************************
+
+//Standard margin sizes
+
+.s-margin {
+  margin-left: 96px;
+  margin-right: 96px;
+}
+@media (max-width: 1028px) {
+  .s-margin {
+    margin-left: 64px;
+    margin-right: 64px;
+  }
+}
+@media (max-width: 800px) {
+  .s-margin {
+    margin-left: 52px;
+    margin-right: 52px;
+  }
+}
+@media (max-width: 600px) {
+  .s-margin {
+    margin-left: 44px;
+    margin-right: 44px;
+  }
+}
+@media (min-width: 1440px) {
+  //here set the width to be static and the content stays static in the center and expand margins
+  //margin-left: auto
+  //margin-right: auto;
+
+  .s-margin {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1248px;
+  }
+}
+.footer {
+  overflow: hidden;
+}
+// .mw-1248 {
+//   max-width: 1248px;
+// }
